@@ -1,5 +1,7 @@
 import './App.css';
 import PieChart from './Components/PieChart';
+import BarChart from './Components/BarChart';
+import LineChart from './Components/LineChart';
 import { useEffect, useState } from 'react';
 import React from 'react';
 
@@ -59,6 +61,12 @@ function App() {
       }
       <div style={{width:500}}>
         <PieChart Data={Data} />
+      </div>
+      <div style={{width:500}}>
+        <BarChart Data={Data} />
+      </div>
+      <div style={{width:500}}>
+        <LineChart Data={Data} />
       </div>
     </div>
   );
