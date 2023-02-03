@@ -47,7 +47,9 @@ function App() {
 
   return (
     <div className="App">
-      <PieChart Data={Data} />
+      <div style={{width:500}}>
+        <PieChart Data={Data} />
+      </div>
     </div>
   );
 }
