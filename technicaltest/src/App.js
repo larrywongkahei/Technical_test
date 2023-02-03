@@ -5,7 +5,6 @@ import React from 'react';
 
 function App() {
   const [chartData, setChartData] = useState({})
-  const [Data, setData] = useState({})
 
   useEffect(() => {
     const getdata = async () =>{
@@ -33,18 +32,19 @@ function App() {
   // console.log(percentageData)
   // console.log(totalValues)
 
-  setData({
+  const Data = {
     labels:namesForChart,
     datasets:[{
       label:'Percentage',
       data:percentageData
     }]
-  })
+  }
+
 
 
   return (
     <div className="App">
-
+      <PieChart Data={Data} />
     </div>
   );
 }
