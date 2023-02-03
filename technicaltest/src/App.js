@@ -6,6 +6,7 @@ import React from 'react';
 function App() {
   const [chartData, setChartData] = useState({})
   const [Data, setData] = useState({})
+
   useEffect(() => {
     const getdata = async () =>{
       const fetchdata = await fetch('http://substantiveresearch.pythonanywhere.com')
@@ -24,6 +25,20 @@ function App() {
     }
     getdata()
     // console.log(chartData)
+  })
+  const namesForChart = Object.keys(chartData)
+  const valuesForChart = Object.values(chartData)
+  const totalValues = valuesForChart.reduce((a, b) => a + b, 0)
+  const percentageData = valuesForChart.map(value => ((value/totalValues)*100).toFixed(2))
+  // console.log(percentageData)
+  // console.log(totalValues)
+
+  setData({
+    labels:namesForChart,
+    datasets:[{
+      label:'Percentage',
+      data:percentageData
+    }]
   })
 
 
