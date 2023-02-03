@@ -5,6 +5,7 @@ import React from 'react';
 
 function App() {
   const [chartData, setChartData] = useState({})
+  const [chartView, setChartView] = useState(0)
 
   useEffect(() => {
     const getdata = async () =>{
@@ -25,6 +26,11 @@ function App() {
     getdata()
     // console.log(chartData)
   })
+
+  const handleClick = () => {
+    
+  }
+
   const namesForChart = Object.keys(chartData)
   const valuesForChart = Object.values(chartData)
   const totalValues = valuesForChart.reduce((a, b) => a + b, 0)
@@ -47,6 +53,10 @@ function App() {
 
   return (
     <div className="App">
+      {chartView === 0?
+        <button onClick={handleClick}>Show Chart</button> :
+        <button onClick={handleClick}>Change Chart</button>
+      }
       <div style={{width:500}}>
         <PieChart Data={Data} />
       </div>
