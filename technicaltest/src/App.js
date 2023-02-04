@@ -8,6 +8,7 @@ import React from 'react';
 function App() {
   const [chartData, setChartData] = useState({})
   const [chartView, setChartView] = useState(0)
+  const [cardsData, setCardsData] = useEffect({})
 
   useEffect(() => {
     const getdata = async () =>{
@@ -42,6 +43,8 @@ function App() {
   const valuesForChart = Object.values(chartData)
   const totalValues = valuesForChart.reduce((a, b) => a + b, 0)
   const percentageData = valuesForChart.map(value => ((value/totalValues)*100).toFixed(2))
+
+  const dataCards = 
   // console.log(percentageData)
   // console.log(totalValues)
 
@@ -60,6 +63,9 @@ function App() {
 
   return (
     <div className="App">
+      <div className='DataContainer'>
+
+      </div>
       <div className='Button'>
         {chartView === 0?
           <button onClick={handleClick}>Show Chart</button> :
