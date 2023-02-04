@@ -17,3 +17,4 @@ Future plan for the application:
 2, Add a button for each chart
 3, Add a form to let user to update the API (If the API allow to)
 4, Show details of each interaction, if the data has added more details other than just id and date.
+5, Add Comments to explain the code
