@@ -8,7 +8,6 @@ import React from 'react';
 function App() {
   const [chartData, setChartData] = useState({})
   const [chartView, setChartView] = useState(0)
-  const [cardsData, setCardsData] = useEffect({})
 
   useEffect(() => {
     const getdata = async () =>{
@@ -44,7 +43,21 @@ function App() {
   const totalValues = valuesForChart.reduce((a, b) => a + b, 0)
   const percentageData = valuesForChart.map(value => ((value/totalValues)*100).toFixed(2))
 
-  const dataCards = 
+  const dataCards = []
+  for (let i = 0; i < namesForChart.length; i++){
+    dataCards.push({
+      key:namesForChart[i],
+      value:valuesForChart[i]
+    })
+  }
+  const Cards = dataCards.map(each => {
+    return(<div className='Cards'>
+      <h2>{each.key}</h2>
+      <h4>Number of interaction : {each.value}</h4>
+    </div>
+    )
+  })
+  
   // console.log(percentageData)
   // console.log(totalValues)
 
@@ -64,7 +77,7 @@ function App() {
   return (
     <div className="App">
       <div className='DataContainer'>
-
+        {Cards}
       </div>
       <div className='Button'>
         {chartView === 0?

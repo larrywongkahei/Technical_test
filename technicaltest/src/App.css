@@ -46,3 +46,17 @@
   display: flex;
   justify-content: center;
 }
+
+.DataContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-color: #6561ba;
+  gap:1rem;
+}
+.DataContainer .Cards {
+  background-color: aquamarine;
+  border-radius: 20px;
+  width: 180px;
+  height: 195px;
+}
