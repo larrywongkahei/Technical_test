@@ -30,7 +30,12 @@ function App() {
   })
 
   const handleClick = () => {
-    
+    if (chartView === 3){
+      setChartView(1)
+    }else{
+      let newChartView = chartView
+      setChartView(newChartView += 1)
+    }
   }
 
   const namesForChart = Object.keys(chartData)
@@ -55,18 +60,25 @@ function App() {
 
   return (
     <div className="App">
-      {chartView === 0?
-        <button onClick={handleClick}>Show Chart</button> :
-        <button onClick={handleClick}>Change Chart</button>
-      }
-      <div style={{width:500}}>
-        <PieChart Data={Data} />
+      <div className='Button'>
+        {chartView === 0?
+          <button onClick={handleClick}>Show Chart</button> :
+          <button onClick={handleClick}>Change Chart</button>
+        }
       </div>
-      <div style={{width:500}}>
-        <BarChart Data={Data} />
-      </div>
-      <div style={{width:500}}>
-        <LineChart Data={Data} />
+      <div className='Graph'>
+        {chartView === 1? 
+          <div style={{width:500}}>
+            <PieChart Data={Data} />
+          </div> : null }
+          {chartView === 2? 
+          <div style={{width:500}}>
+            <BarChart Data={Data} />
+          </div> : null }
+          {chartView === 3? 
+          <div style={{width:500}}>
+            <LineChart Data={Data} />
+          </div> : null }
       </div>
     </div>
   );
